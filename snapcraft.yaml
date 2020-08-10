@@ -9,6 +9,10 @@ license: MIT
 
 confinement: strict
 
+layout:
+  /usr/local/mruby-mrbgems:
+    bind: $SNAP_COMMON/usr/local/mruby-mrbgems
+
 parts:
   mrbgem-template:
     source: https://github.com/udzura/mruby-mrbgem-template.git
@@ -18,9 +22,10 @@ parts:
       - ruby2.5
       - ruby2.5-dev
       - rake
-      - git
       - gcc
       - bison
+    stage-packages:
+      - git
     artifacts:
       - mruby/bin/mrbgem-template
 apps:
